@@ -128,7 +128,7 @@ public class BinaryDigit {
 	 * Bloch.
 	 * 
 	 * @return a hash code value for this object.
-	 * @see java.util.Object
+	 * @see java.util.Object#hashCode
 	 * @see java.util.Hashtable
 	 */
 	@Override
