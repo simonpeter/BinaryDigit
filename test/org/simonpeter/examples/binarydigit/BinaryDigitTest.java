@@ -18,7 +18,7 @@ import static org.simonpeter.examples.binarydigit.BinaryDigit.FALSE;
  * JUnit tests for {@link BinaryDigit}.
  *
  * @author  Simon Peter Chappell
- * @version 20100721
+ * @version 20100727
  * @see     org.simonpeter.examples.BinaryDigit
  */
 public class BinaryDigitTest {
