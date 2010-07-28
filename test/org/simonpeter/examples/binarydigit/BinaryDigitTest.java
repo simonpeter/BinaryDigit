@@ -52,45 +52,84 @@ public class BinaryDigitTest {
         f2 = null;
     }
 
-
+    /**
+     * Test that the {@code equals()} method handles nulls correctly.
+     * <p>
+     * An object is never equal to null.
+     */
     @Test public void testNullBehaviorOfEquals() {
-    	// An object is never equal to null.
     	assertFalse(t1.equals(null));
     }
 
+    /**
+     * Test that the {@code equals()} method is reflexive.
+     * <p>
+     * An object is always equal to itself.
+     */
     @Test public void testReflexiveBehaviorOfEquals() {
-    	// An object is always equal to itself.
     	assertEquals(t1, t1);
     	assertTrue(t1.equals(t1));
     }
 
+    /**
+     * Test that the {@code equals()} method handles unequal values correctly.
+     * <p>
+     * If o1 does not equal o2, then o2 must not equal o1.
+     */
     @Test public void testUnequalValuesOfEqual() {
-    	// If o1 does not equal o2, then o2 must not equal o1.
     	assertFalse(t1.equals(f1));
     	assertFalse(f1.equals(t1));
     }
 
+    /**
+     * Test that the {@code equals()} method is symmetrical.
+     * <p>
+     * If o1 is equal to o2, then o2 must be equal to o1.
+     */
     @Test public void testSymmetricalBehaviorOfEquals() {
-    	// If o1 is equal to o2, then o2 must be equal to o1.
     	assertTrue(t1.equals(t2));
     	assertTrue(t2.equals(t1));
     }
 
+    /**
+     * Test that the {@code equals()} method is transitive.
+     * <p>
+     * If o1 is equal to o2 and o2 is equal to o3, then o3 must be equal to o1.
+     */
     @Test public void testTransitiveBehaviorOfEquals() {
-    	// If o1 is equal to o2 and o2 is equal to o3,
-    	// then o3 must be equal to o1.
     	assertTrue(t1.equals(t2));
     	assertTrue(t2.equals(t3));
     	assertTrue(t3.equals(t1));
     }
 
+    /**
+     * Test that hashcodes are equal for equal objects.
+     * <p>
+     * Objects that are equal, must have equal hashcodes.
+     * Interestingly, there is no requirement for unequal
+     * objects to have different hashcodes.
+     * <p>
+     * A classic cheat for hashcodes is to always return
+     * an integer literal, such as 1. This is legal, but
+     * causes very inefficient hashing behavior in most
+     * collection objects.
+     */
     @Test public void testEqualObjectsHaveEqualHashCodes() {
-    	// Objects that are equal, must have equal hashcodes.
     	assertEquals(t1.hashCode(), t2.hashCode());
     }
 
+    /**
+     * Test that an object has a constant hashcode.
+     * <p>
+     * An unchanged object should always have the same hashcode within
+     * any lifetime within an instance of the JVM.
+     * <p>
+     * The default behavior for the {@code hashCode()} method is to return
+     * the memory address of the object instance. Obviously this can change
+     * between runs of a program, but would be a constant through the
+     * duration of each run.
+     */
     @Test public void testSameObjectAlwaysSameHashCode() {
-    	// An unchanged object should always have the same hashcode.
     	int h1 = t1.hashCode();
     	int h2 = t1.hashCode();
     	assertEquals(h1, h2);
@@ -106,54 +145,47 @@ public class BinaryDigitTest {
     	assertFalse(FALSE.toBoolean());
     }
 
-    @Test
-    public void testNot() {
+    @Test public void testNot() {
         assertTrue(f1.not().toBoolean());
         assertFalse(t1.not().toBoolean());
     }
 
-    @Test
-    public void testAnd() {
+    @Test public void testAnd() {
         assertTrue(t1.and(t2).toBoolean());
         assertFalse(f1.and(f2).toBoolean());
         assertFalse(t1.and(f1).toBoolean());
         assertFalse(f1.and(t1).toBoolean());
     }
 
-    @Test
-    public void testNand() {
+    @Test public void testNand() {
         assertFalse(t1.nand(t2).toBoolean());
         assertTrue(f1.nand(f2).toBoolean());
         assertTrue(t1.nand(f1).toBoolean());
         assertTrue(f1.nand(t1).toBoolean());
     }
 
-    @Test
-    public void testOr() {
+    @Test public void testOr() {
         assertTrue(t1.or(t2).toBoolean());
         assertFalse(f1.or(f2).toBoolean());
         assertTrue(t1.or(f1).toBoolean());
         assertTrue(f1.or(t1).toBoolean());
     }
 
-    @Test
-    public void testNor() {
+    @Test public void testNor() {
         assertFalse(t1.nor(t2).toBoolean());
         assertTrue(f1.nor(f2).toBoolean());
         assertFalse(t1.nor(f1).toBoolean());
         assertFalse(f1.nor(t1).toBoolean());
     }
 
-    @Test
-    public void testXor() {
+    @Test public void testXor() {
         assertFalse(t1.xor(t2).toBoolean());
         assertFalse(f1.xor(f2).toBoolean());
         assertTrue(t1.xor(f1).toBoolean());
         assertTrue(f1.xor(t1).toBoolean());
     }
 
-    @Test
-    public void testXnor() {
+    @Test public void testXnor() {
         assertTrue(t1.xnor(t2).toBoolean());
         assertTrue(f1.xnor(f2).toBoolean());
         assertFalse(t1.xnor(f1).toBoolean());
