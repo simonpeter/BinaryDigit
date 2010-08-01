@@ -31,11 +31,11 @@ public class BinaryDigitTest {
      */
     @Before
     public void before() {
-        t1 = TRUE;
-        t2 = TRUE;
-        t3 = TRUE;
-        f1 = FALSE;
-        f2 = FALSE;
+        t1 = new BinaryDigit(TRUE);
+        t2 = new BinaryDigit(TRUE);
+        t3 = new BinaryDigit(TRUE);
+        f1 = new BinaryDigit(FALSE);
+        f2 = new BinaryDigit(FALSE);
     }
 
 
