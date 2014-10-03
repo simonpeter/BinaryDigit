@@ -29,8 +29,8 @@
 
     <target name="compile" depends="init" description="Compile Java code.">
         <mkdir dir="${build}" />
-        <javac srcdir="${src}"      destdir="${build}" classpathref="base.path" />
-        <javac srcdir="${src.test}" destdir="${build}" classpathref="test.path" />
+        <javac includeantruntime="false" srcdir="${src}"      destdir="${build}" classpathref="base.path" />
+        <javac includeantruntime="false" srcdir="${src.test}" destdir="${build}" classpathref="test.path" />
     </target>
 
     <target name="test" depends="compile" if="junit.present" description="Run available unit tests.">
